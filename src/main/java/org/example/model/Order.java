@@ -1,5 +1,6 @@
 package org.example.model;
 
+import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import lombok.Getter;
 
@@ -8,14 +9,21 @@ import java.time.LocalDate;
 @Getter
 @Entity
 @Table(name = "orders")
+@Schema(description = "Сущность заказа")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Schema(description = "id заказа")
     private int id;
+    @Schema(description = "Название заказа")
     private String product;
+    @Schema(description = "Количество")
     private int quantity;
+    @Schema(description = "Цена закааз")
     private BigDecimal price;
+    @Schema(description = "Статус заказа")
     private String status;
+    @Schema(description = "Дата заказа")
     private LocalDate orderdate;
 
     public Order(){}
